@@ -1,0 +1,26 @@
+# 全テキストファイルを自動判定し、Git 内部は LF で正規化する
+* text=auto
+
+# 主要ソースを text として明示
+*.ts text
+*.js text
+*.json text
+*.md text
+
+# package-lock.json は npm 慣例に従い LF 固定
+package-lock.json text eol=lf
+
+# シェルスクリプトは LF で固定（Git Bash の解釈エラー回避）
+*.sh text eol=lf
+
+# Windows のスクリプトは CRLF で固定
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 画像ファイルはバイナリとして扱う
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
