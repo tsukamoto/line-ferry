@@ -1,8 +1,8 @@
 {
   "name": "line-ferry",
   "displayName": "Line Ferry",
-  "description": "Send the current line to the active terminal without executing (Ctrl+Shift+Enter)",
-  "version": "0.0.1",
+  "description": "Send the current line to the active terminal without executing",
+  "version": "0.0.2",
   "publisher": "tsukamoto",
   "repository": {
     "type": "git",
@@ -18,14 +18,23 @@
   "contributes": {
     "commands": [
       {
-        "command": "sendLineToTerminal.send",
-        "title": "Send Line to Terminal"
+        "command": "lineFerry.send",
+        "title": "Line Ferry: Send Line to Terminal"
+      },
+      {
+        "command": "lineFerry.sendAndFocus",
+        "title": "Line Ferry: Send Line to Terminal and Focus"
       }
     ],
     "keybindings": [
       {
-        "key": "ctrl+shift+enter",
-        "command": "sendLineToTerminal.send",
+        "key": "ctrl+enter",
+        "command": "lineFerry.send",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "ctrl+alt+enter",
+        "command": "lineFerry.sendAndFocus",
         "when": "editorTextFocus"
       }
     ]
